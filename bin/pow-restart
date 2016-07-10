@@ -1,0 +1,5 @@
+#!/bin/bash
+# Restarts Pow when DNS fails to resolve
+lsof | grep 20560 | awk '{print $2}' | xargs kill -9
+launchctl unload ~/Library/LaunchAgents/cx.pow.powd.plist
+launchctl load ~/Library/LaunchAgents/cx.pow.powd.plist

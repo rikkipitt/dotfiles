@@ -1,0 +1,4 @@
+export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+export POW_DST_PORT=88
+export POW_WORKERS=1
+export POW_EXT_DOMAINS=ngrok.io

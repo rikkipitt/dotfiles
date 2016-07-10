@@ -1,0 +1,41 @@
+export ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="robbyrussell"
+
+plugins=(git rails heroku sublime tmux tmuxinator aws)
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/rikkipitt/.composer/vendor/bin"
+
+source $ZSH/oh-my-zsh.sh
+
+export PATH="$HOME/.bin:$PATH"
+
+# Sets the tab title to current dir
+precmd() {
+  echo -ne "\e]1;${PWD##*/}\a"
+}
+
+# recommended by brew doctor
+export PATH="/usr/local/bin:$PATH"
+eval "$(rbenv init - zsh --no-rehash)"
+
+# Set some tmux and pythin defaults
+export DISABLE_AUTO_TITLE=true
+export DISABLE_SPRING=true
+export WORKON_HOME=~/Virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export PIP_REQUIRE_VIRTUALENV=true
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Java 7 instead of 8 for testing Neo4j
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+
+export AWS_DEFAULT_PROFILE=personal
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+eval "$(rbenv init - --no-rehash zsh)"
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+# asp $AWS_DEFAULT_PROFILE

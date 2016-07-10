@@ -1,0 +1,3 @@
+Plug 'jgdavey/tslime.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'thoughtbot/vim-rspec'
