@@ -1,6 +1,7 @@
+alias t="touch tmp/restart.txt"
 alias composer="php /usr/local/bin/composer.phar"
 alias p=python3
-alias pip=pip3
+alias restart-postgres="rm /usr/local/var/postgres/postmaster.pid; launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist; launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias workoff=deactivate
 
 # Get my Github project stats
