@@ -1,6 +1,12 @@
+Plug 'mattn/emmet-vim'
 Plug 'jgdavey/tslime.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'thoughtbot/vim-rspec'
+Plug 'christoomey/vim-tmux-navigator'
+
+" == TypeScript tools ==
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
 " == JavaScript syntax highlighting ==
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
@@ -9,4 +15,4 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascri
 
 " == JavaScript tools integration ==
 Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'scrooloose/syntastic'
+
