@@ -1,34 +1,3 @@
-Plug 'mattn/emmet-vim'
-Plug 'jgdavey/tslime.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'thoughtbot/vim-rspec'
 Plug 'christoomey/vim-tmux-navigator'
-
-" == Snipmate deps ==
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-
-" == TypeScript tools ==
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-
-" == JavaScript syntax highlighting ==
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'vue'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-
-" == Vue syntax highlighting ==
-Plug 'posva/vim-vue'
-
-" == JavaScript tools integration ==
-Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
-
-" == CSS autocomplete
-Plug 'hail2u/vim-css3-syntax'
-
-" == Ruby Formatter
-Plug 'ruby-formatter/rufo-vim'
-
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
