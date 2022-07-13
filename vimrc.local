@@ -15,6 +15,8 @@ set vb                            " enable visual bell (disable audio bell)
 set ruler                         " show row and column in footer
 set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
+set relativenumber
+set number
 set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
@@ -24,7 +26,7 @@ set nrformats=                    " ensure base 10 for zero padded numbers, not 
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
 " put git status, column/row number, total lines, and percentage in status
-set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]
+set statusline=%F%m%r%h%w\ %{FugitiveStatusline()}\ [%l,%c]\ [%L,%p%%]
 
 " set dark background and color scheme
 set background=dark
@@ -32,12 +34,12 @@ colorscheme base16-railscasts
 
 " set up some custom colors
 highlight clear SignColumn
-highlight VertSplit    ctermbg=236
+highlight VertSplit    ctermbg=236 ctermfg=green
 highlight ColorColumn  ctermbg=236
 highlight LineNr       ctermbg=236 ctermfg=240
 highlight CursorLineNr ctermbg=236 ctermfg=240
 highlight CursorLine   ctermbg=236
-highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLineNC ctermbg=238 ctermfg=242
 highlight StatusLine   ctermbg=240 ctermfg=12
 highlight IncSearch    ctermbg=3   ctermfg=1
 highlight Search       ctermbg=1   ctermfg=3
@@ -64,6 +66,10 @@ autocmd BufWinLeave * call clearmatches()
 " Make it obvious where 100 characters is
 set textwidth=100
 
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
 " NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
@@ -82,7 +88,7 @@ let g:tslime_always_current_window = 1
 
 " Rspec
 "let g:rspec_command = "!clear && bundle exec rspec -fp -c {spec}"
-let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 let g:rspec_runner = "os_x_iterm2"
 
 " mxw/vim-jsx
@@ -94,14 +100,24 @@ let g:used_javascript_libs = 'react'
 let g:flow#enable = 1
 let g:flow#autoclose = 1
 
-" scrooloose/syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" ale
+let g:ale_linters_explicit = 1
+let g:ale_linters = {}
+let g:ale_linters = {
+\   'eruby': ['erubylint'],
+\   'ruby': ['standardrb'],
+\}
+let g:ale_fixers = {}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'ruby': ['standardrb'],
+\   'javascript': ['prettier'],
+\   'json': ['prettier'],
+\   'scss': ['prettier'],
+\   'typescript': ['prettier'],
+\}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_auto_jump = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
+let g:ale_fix_on_save = 1
+
+" snipmate
+let g:snipMate = { 'snippet_version' : 1 }

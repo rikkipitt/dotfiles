@@ -1,3 +1,4 @@
 export POW_WORKERS=1
-export POW_EXT_DOMAINS=ngrok.io
+export POW_EXT_DOMAINS=ngrok.io,pagekite.me
 export POW_TIMEOUT=86400
+export POW_DOMAINS=test
